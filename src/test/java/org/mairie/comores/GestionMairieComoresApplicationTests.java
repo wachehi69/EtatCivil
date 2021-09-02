@@ -14,7 +14,9 @@ import junit.framework.TestCase;
 @SpringBootTest
 public class GestionMairieComoresApplicationTests extends TestCase{
 
-
+	@Test
+	public void contextLoads() {
+	}
 
 	@Test   
 	public void testCalculer() throws Exception {
