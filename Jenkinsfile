@@ -4,9 +4,12 @@ pipeline{
       maven 'Maven3.8.2'
   }  
   stages { 
-      stage('Get maven'){
+      stage('Test unitaire'){
         steps{
+           echo 'Le step de test'
            sh 'mvn --version' 
+           sh 'mvn  test' 
+           
       }
     }           
   }
