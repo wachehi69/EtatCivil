@@ -4,13 +4,18 @@ pipeline{
       maven 'Maven3.8.2'
   }  
   stages { 
-      stage('Test unitaire'){
+      stage('Echo'){
         steps{
            echo 'Le step de test'
            sh 'mvn --version' 
-           sh 'mvn  test' 
-           
+           sh 'mvn  test'        
       }
-    }           
+    }  
+    stage('Test unitaire'){
+        steps{
+          sh 'mvn  test'        
+      }
+    }  
+             
   }
 }
