@@ -1,12 +1,28 @@
-def mvn
-node {
-   stage('Get tools'){
-     def maven_home = tool 'Maven3.8.2'
-	 mvn = "${maven_home}/bin/mvn"
-     }
-   stage('Get maven version'){
-     sh "${mvn} --version"
-   
+pipeline{
+  agent any 
+  tools {
+      maven 'Maven3.8.2'
+  }  
+  stages { 
+      stage ('Echo et test unitaire){
+	      parallel {
+		      stage('Echo'){
+		        steps{
+		         echo 'Le step de test'
+		          sh 'mvn --version'                
+		      }
+		    }  
+		    stage('Test unitaire'){
+		        steps{
+		          sh 'mvn  test'        
+		      }
+		    } 
+		  } 
+   }
+    stage('Package'){
+        steps{
+          sh 'mvn  package -DskipTest'        
       }
-   
+    }           
+  }
 }
