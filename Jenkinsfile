@@ -7,25 +7,19 @@ pipeline{
       stage ('Echo et test unitaire'){
 	      steps {
 	         sh 'mvn test'	            
-	      } 
-	      
-	      post {
-	         always {
-	             junit 'target/surefire-reports/*.xml' 		       
-	         }
-	      }
-		    
+	      }      	     	    
 	   }
      stage('Package'){
          steps{
-          sh 'mvn  package -DskipTest'  
-             
+          sh 'mvn  package -DskipTest'              
          }
-         post {
+            
+      }      
+    }
+       post {
 	        always {
-	           archiveArtifacts artifacts: 'target/*.jar'  	         
+	           junit 'target/surefire-reports/*.xml' 	
+	           archiveArtifacts artifacts: 'target/*.jar'	         
 	         }
-	      }         
-    }           
+	      }          
   }
-}
