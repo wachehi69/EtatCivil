@@ -4,7 +4,7 @@ pipeline{
       maven 'Maven3.8.2'
   }  
   stages { 
-      stage ('Echo et test unitaire){
+      stage ('Echo et test unitaire'){
 	      parallel {
 		      stage('Echo'){
 		        steps{
