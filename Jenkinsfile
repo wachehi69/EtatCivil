@@ -1,7 +1,7 @@
 def mvn
 node {
    stage('Get tools'){
-     def maven_home = tool 'maven3.8.2'
+     def maven_home = tool 'Maven3.8.2'
 	 mvn = "${maven_home}/bin/mvn"
      }
    stage('Get maven version'){
