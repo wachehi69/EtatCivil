@@ -5,22 +5,14 @@ pipeline{
   }  
   stages { 
       stage ('Echo et test unitaire'){
-	      parallel {
-		      stage('Echo'){
-		        steps{
-		         echo 'Le step de test'
-		          sh 'mvn --version'                
-		      }
-		    }  
-		    stage('Test unitaire'){
-		        steps{
-		          sh 'mvn  test'        
-		      }
-		    }
-		  } 
-   }
-    stage('Package'){
-        steps{
+	      steps {
+	         sh 'mvn test'
+	         junit 'reports/**/*.xml' 	       
+	      } 
+		    
+	   }
+     stage('Package'){
+         steps{
           sh 'mvn  package -DskipTest'        
       }
     }           
