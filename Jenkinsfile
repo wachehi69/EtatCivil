@@ -13,7 +13,8 @@ pipeline{
 	   }
      stage('Package'){
          steps{
-          sh 'mvn  package -DskipTest'        
+          sh 'mvn  package -DskipTest'  
+          archiveArtifacts artifacts: 'target/*.jar'      
       }
     }           
   }
