@@ -17,7 +17,7 @@ public class GestionMairieComoresApplicationTests extends TestCase{
 
 	@Test   
 	public void testCalculer() throws Exception {
-	    assertEquals(2,MacClasse.calculer(1,1));
+	    assertEquals(2,MacClasse.calculer(1,3));
 	  }
 
 }
