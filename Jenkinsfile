@@ -3,8 +3,7 @@ pipeline{
   tools {
       maven 'Maven3.8.2'
   }  
-  
-  stages { 
+   stages { 
       stage ('Echo et test unitaire'){
 	      steps {
 	         sh 'mvn test'	            
