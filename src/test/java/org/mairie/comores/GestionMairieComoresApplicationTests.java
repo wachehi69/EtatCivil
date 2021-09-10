@@ -14,7 +14,7 @@ import junit.framework.TestCase;
 @SpringBootTest
 public class GestionMairieComoresApplicationTests extends TestCase{
 
-  //test
+  //test // autre test
 	@Test   
 	public void testCalculer() throws Exception {
 	    assertEquals(2,MacClasse.calculer(1,3));
