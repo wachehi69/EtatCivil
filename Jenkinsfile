@@ -1,8 +1,5 @@
 node{
    def app 
-  tools {
-      maven 'Maven3.8.2'
-  }  
      stage ('Clone'){
 	      checkout scm      	     	    
 	   }
