@@ -4,7 +4,7 @@ node{
 	      checkout scm      	     	    
 	   }
      stage('Build image'){
-      app = docker.build("xavki/nginx")     
+      app = docker.build('xavki/nginx')     
      }
      
       stage('Test image'){
