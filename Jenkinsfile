@@ -1,17 +1,25 @@
-node{
-   def app 
-     stage ('Clone'){
-	      checkout scm      	     	    
+pipeline{
+  agent any 
+  tools {
+      maven 'Maven3.8.2'
+  }  
+   stages { 
+      stage ('Echo et test unitaire'){
+	      steps {
+	         sh 'mvn test'	            
+	      }      	     	    
 	   }
-     stage('Build image'){
-      app = docker.build('xavki/nginx')     
-     }
-     
-      stage('Test image'){
-      docker.image('xavki/nginx').winthRun('-p 80:80') { c ->
-      sh 'docker ps'
-      sh 'curl localhost'
-      }     
-     }
-          
+     stage('Package'){
+         steps{
+          sh 'mvn  package -DskipTest'              
+         }
+            
+      }      
+    }
+       post {
+	        always {
+	           junit 'target/surefire-reports/*.xml' 	
+	           archiveArtifacts artifacts: 'target/*.jar'	         
+	         }
+	      }          
   }

@@ -1,3 +1,5 @@
-FROM nginx:latest
-RUN sed -i  's/nginx/xavki/g'  /usr/share/nginx/html/index.html
-EXPOSE 80 
+FROM openjdk:8
+MAINTAINER wachehi (wachehi@hotmail.com)
+ADD ./target/GestionMairieComores-0.0.1-SNAPSHOT.jar  /etatcivil/GestionMairieComores-0.0.1-SNAPSHOT.jar
+EXPOSE 8086
+ENTRYPOINT ["java","-jar", "/etatcivil/GestionMairieComores-0.0.1-SNAPSHOT.jar"]
