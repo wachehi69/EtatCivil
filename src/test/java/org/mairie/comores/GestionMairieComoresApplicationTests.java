@@ -4,7 +4,7 @@ package org.mairie.comores;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mairie.comores.metier.MacClasse;
+
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -14,10 +14,10 @@ import junit.framework.TestCase;
 @SpringBootTest
 public class GestionMairieComoresApplicationTests extends TestCase{
 
-  //test // autre test
-	@Test   
-	public void testCalculer() throws Exception {
-	    assertEquals(2,MacClasse.calculer(1,3));
-	  }
+	@Test
+	public void contextLoads() {
+	}
+
+	
 
 }
