@@ -3,10 +3,10 @@ services:
   etat-civil-backend:
      image: wachehi/etatcivil:latest  
      ports: 
-       - "8086:8086"
+       - "8090:8090"
      networks:
        - etatcivil-network 
-     #restart: always
+     restart: always
      container_name: etatCivil
      depends_on: 
        - etatcivil-mysql-db
@@ -20,12 +20,12 @@ services:
      restart: always
      networks:
        - etatcivil-network
-     container_name: mysql
+     container_name: mysql_serveur
      environment: 
-       - MYSQL_ROOT_PASSWORD=kamisama123
+       - MYSQL_ROOT_PASSWORD=kamisama123      
      volumes: 
-       - /init:/docker-entrypoint-initdb.d
-       - /var/lib/mysql:/var/lib/mysql
+       - /init/create_database.sql:/docker-entrypoint-initdb.d/create_database.sql
+       - /var/lib/mysql:/var/lib/mysql 
 
   adminer:
     image: adminer
@@ -38,5 +38,5 @@ services:
 networks:
   etatcivil-network:
     driver: bridge
-  
-     
+volumes: 
+  init:

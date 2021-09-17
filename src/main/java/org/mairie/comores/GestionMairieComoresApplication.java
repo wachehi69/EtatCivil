@@ -56,7 +56,7 @@ public class GestionMairieComoresApplication implements CommandLineRunner {
           
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
-		try {
+		/*try {
 			// Ajouter un employé en base
 			AjoutEmploye(dateFormat);
 			// affichage des employés
@@ -73,7 +73,7 @@ public class GestionMairieComoresApplication implements CommandLineRunner {
 		initialisationExtraitNaissance();
 		// afficher tous employes qui sont utilisateurs  
 		//initialisation de l'extrait de decès
-		initialisationExtraitDeces();
+		initialisationExtraitDeces();*/
 		
 		try {
 			affichageUtilisateur();
