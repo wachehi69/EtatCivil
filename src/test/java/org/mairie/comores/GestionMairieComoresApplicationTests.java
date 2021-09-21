@@ -1,7 +1,5 @@
 package org.mairie.comores;
 
-//import static org.assertj.core.api.Assertions.assertThat;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -10,9 +8,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import junit.framework.TestCase;
 
-@RunWith(SpringRunner.class)
+
 @SpringBootTest
-public class GestionMairieComoresApplicationTests extends TestCase{
+public class GestionMairieComoresApplicationTests {
 
 	@Test
 	public void contextLoads() {
